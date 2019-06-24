@@ -11,3 +11,5 @@
 /build
 /captures
 .externalNativeBuild
+
+openCVLibrary343/build/

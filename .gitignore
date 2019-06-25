@@ -13,3 +13,4 @@
 .externalNativeBuild
 
 openCVLibrary343/build/
+*.so

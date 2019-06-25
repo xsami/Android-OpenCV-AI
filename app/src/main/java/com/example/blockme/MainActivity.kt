@@ -12,19 +12,15 @@ import org.opencv.android.OpenCVLoader
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        if ( OpenCVLoader.initDebug() ) {
-            System.out.println("Succed")
-            Toast.makeText(applicationContext, "OpenCV loaded successsfully", Toast.LENGTH_SHORT).show()
-        } else {
-            System.out.println("Failed")
-
-            Toast.makeText(applicationContext, "Could not load OpenCV", Toast.LENGTH_SHORT).show()
-        }
-
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+
+        when (OpenCVLoader.initDebug()) {
+            true -> Toast.makeText(applicationContext, "Successfull loading", Toast.LENGTH_SHORT)
+            else -> Toast.makeText(applicationContext, "Failed loading", Toast.LENGTH_SHORT)
+        }
 
         fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
